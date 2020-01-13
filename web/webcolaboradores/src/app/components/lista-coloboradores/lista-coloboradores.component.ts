@@ -9,6 +9,7 @@ import { from } from 'rxjs';
 
 
 export class AngularMaterialModule { }
+
 @Component({
   selector: 'app-lista-coloboradores',
   templateUrl: './lista-coloboradores.component.html',
@@ -40,7 +41,11 @@ export class ListaColoboradoresComponent implements OnInit {
   Colaborador: any = [];
   edit: boolean = false;
 
-  constructor(private colaboradoresService: ColaboradoresService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private colaboradoresService: ColaboradoresService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
+  ) { }
 
 
 

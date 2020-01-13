@@ -12,7 +12,6 @@ export class ColaboradoresService {
   constructor(private  http:HttpClient) { }
 
   getColaboradores(){
-
     return this.http.get(`${this.API_URL}/list`);
   }
   getidColaborador(id:string){
