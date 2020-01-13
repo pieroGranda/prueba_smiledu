@@ -1,0 +1,60 @@
+<div class="container p-2">
+  <button class="nav-link" routerLink="/colaboradores/create" routerLinkActive="active">
+    CREAR NUEVO PERFIL
+
+</button>
+    <div class="card card-container" style="margin-top:50px; padding: 30px;">
+
+        <h3 style="margin:auto; font-family: 'Calistoga', cursive;">Lista Colaboradores</h3>
+        <hr>
+        
+        <table class="table table-striped">
+            <thead>
+                <th scope="col"><b>Nombre</b></th>
+                <th scope="col"><b>Salario</b></th>
+                <th scope="col"><b>Estado</b></th>
+                <th scope="col"><b>Cargo</b></th>
+                <th scope="col"><b>Ver</b></th>
+                <th scope="col"><b>Borrar</b></th>
+         
+            </thead>
+        <tbody *ngFor="let col of Colaborador ">
+              <td scope="row"><b>{{ col.nombres}}.{{ col.apellidos}}</b></td>           
+              <td scope="row"><b>{{ col.salario}}</b></td>
+              <td scope="row"><b>{{ col.salario}}</b></td>
+              <td scope="row"><b>{{ col.cargo}}</b></td>
+              <td>
+                <a class="nav-link" routerLink="/colaboradores/perfil" routerLinkActive="active"> ver perfil</a>
+              </td>
+              <td>
+               <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-lg">Eliminar</button>
+
+              </td>
+
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content p-4">
+                     <h2> ¿Eliminar  registro?</h2>
+              
+                     <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-danger"(click)="deleteColaborador(col.id)" >Eliminar</button>
+                    </div>
+          
+                  </div>
+                </div>
+              </div>
+            <!-- Button trigger modal -->
+
+
+
+
+
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
