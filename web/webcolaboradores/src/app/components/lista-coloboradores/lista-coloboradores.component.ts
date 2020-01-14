@@ -2,10 +2,11 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ColaboradoresService } from '../../services/colaboradores.service'
 
 import { Router, ActivatedRoute } from '@angular/router'
-
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableModule } from '@angular/material/table';
+
+
 import { from } from 'rxjs';
+import { DialogNewColaboradorComponent } from 'src/app/dialog-new-colaborador/dialog-new-colaborador.component';
 
 
 export class AngularMaterialModule { }
@@ -15,39 +16,30 @@ export class AngularMaterialModule { }
   templateUrl: './lista-coloboradores.component.html',
   styleUrls: ['./lista-coloboradores.component.css']
 })
-export class DialogContentExample {
-  constructor(public dialog: MatDialog) { }
-
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-}
-
-
-export class DialogContentExampleDialog { }
 
 
 
 
-@Component({
-  selector: 'app-lista-coloboradores',
-  templateUrl: 'lista-coloboradores.component.html',
-})
+
+
 export class ListaColoboradoresComponent implements OnInit {
-  Colaborador: any = [];
+   Colaborador: any = [];
   edit: boolean = false;
+
+
+  
 
   constructor(
     private colaboradoresService: ColaboradoresService, 
     private router: Router, 
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public dialog:MatDialog
   ) { }
 
+  openDialog(){ 
+     this.dialog.open(DialogNewColaboradorComponent);
 
+  }
 
   ngOnInit() {
     this.getColaboradores();
