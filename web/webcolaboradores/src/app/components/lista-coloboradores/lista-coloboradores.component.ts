@@ -86,20 +86,7 @@ export class ListaColoboradoresComponent implements OnInit {
 
 
   }
-  saveNewColaborador() {
-
-    delete this.Colaborador.id;
-    this.colaboradoresService.saveColoborador(this.Colaborador)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.router.navigate(['/colaboradores']);
-
-        },
-        err => console.error(err)
-
-      )
-  }
+ 
 
   
 

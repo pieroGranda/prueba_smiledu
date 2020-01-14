@@ -20,7 +20,11 @@ const routes: Routes = [
     component:ListaColoboradoresComponent
   },
   {
-    path:'colaboradores/perfil',
+    path:'colaboradores/perfil/:id',
+    component:PerfilColoboradoresComponent
+  },
+  {
+    path:'colaboradores/edit/:id',
     component:PerfilColoboradoresComponent
   },
   {

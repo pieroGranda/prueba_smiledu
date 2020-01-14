@@ -15,6 +15,7 @@ import { from } from 'rxjs';
 import { FormularioColoboradoresComponent } from './components/formulario-coloboradores/formulario-coloboradores.component';
 import { DialogEliminarComponent } from './dialog-eliminar/dialog-eliminar.component';
 import { DialogNewColaboradorComponent } from './dialog-new-colaborador/dialog-new-colaborador.component';
+import { DialogActualizarColoboradorComponent } from './dialog-actualizar-coloborador/dialog-actualizar-coloborador.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +24,13 @@ import { DialogNewColaboradorComponent } from './dialog-new-colaborador/dialog-n
     PerfilColoboradoresComponent,
     FormularioColoboradoresComponent,
     DialogEliminarComponent,
-    DialogNewColaboradorComponent
+    DialogNewColaboradorComponent,
+    DialogActualizarColoboradorComponent
   ],
   entryComponents :[
     DialogEliminarComponent,
-    DialogNewColaboradorComponent
+    DialogNewColaboradorComponent,
+    DialogActualizarColoboradorComponent
   ],
   imports: [
     BrowserModule,

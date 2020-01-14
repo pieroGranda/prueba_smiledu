@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {Colaborador} from'../../models/Colaboradores';
+import { Location } from '@angular/common';
+import { from } from 'rxjs';
+import {ColaboradoresService} from'../../services/colaboradores.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-perfil-coloboradores',
@@ -7,9 +13,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilColoboradoresComponent implements OnInit {
 
-  constructor() { }
+  colaborador:Colaborador;
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private colaboradoresService: ColaboradoresService,
+  ) { }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.getColaborador();
+  }
+  getColaborador():void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this .colaboradoresService.getidColaborador(id).subscribe( colaborador=>this.colaborador)
   }
 
 }

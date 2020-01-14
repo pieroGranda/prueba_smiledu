@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Colaborador}  from '../models/Colaboradores';
-import { from, Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class ColaboradoresService {
   getColaboradores(){
     return this.http.get(`${this.API_URL}/list`);
   }
-  getidColaborador(id:string){
+  getidColaborador(id:number){
       return  this.http.get(`${this.API_URL}/id/${id}`)
   }
   saveColoborador(colaborador:Colaborador){
-    return this.http.post(`${this.API_URL}/create`,colaborador);
+    return this.http.post(`${this.API_URL}/create/`,colaborador);
   }
 
   DeleteColaborador(id:string){
@@ -26,6 +27,9 @@ export class ColaboradoresService {
 }
 
 updateColaborador(id,updateColaborador):Observable<Colaborador>{
-  return  this.http.put(`${this.API_URL}/delete/${id}`,updateColaborador);
+  return  this.http.put(`${this.API_URL}/update/${id}`,updateColaborador);
 }
+
+
+
 }

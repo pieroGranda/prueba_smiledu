@@ -1,18 +1,100 @@
-<mat-form-field floatLabel="never" appearance="outline">
-    <mat-label>Nombres</mat-label>
-    <input matInput required>
-  </mat-form-field>
-  <mat-form-field floatLabel="never" appearance="outline">
-    <mat-label>Apellidos</mat-label>
-    <input matInput required>
-  </mat-form-field>
+<h2 mat-dialog-title> Nuevo Colaborador </h2>
+
+<mat-dialog-content class="mat-typography">
+
+  <p>
+    Datos:
+  </p>
+  <form class="example-form">
+    <div class="row">
+
+      <div class="col">
+        <mat-form-field floatLabel="never" appearance="outline">
+          <mat-label>Nombres</mat-label>
+          <input matInput required>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field floatLabel="never" appearance="outline">
+          <mat-label>Apellidos</mat-label>
+          <input matInput required>
+        </mat-form-field>
+
+      </div>
+     
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Rango</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Enter your email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col">
+
+        
+      </div>
+
+     
+
+    </div>
+
+
+
+    
+  </form>
+
+  <mat-card  appearance="outline">
+    <mat-card-content>
+      <h2 class="example-h2">Sueldo</h2>
   
-  <mat-form-field>
-    <mat-label>Rango</mat-label>
-    <mat-select>
-      <mat-option>None</mat-option>
-      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+      <section class="example-section">
+        <mat-form-field class="example-margin">
+          <input matInput type="money" placeholder="Value" [(ngModel)]="value">
+        </mat-form-field>
+       
+      
+      </section>
+  
+  
+    </mat-card-content>
+  </mat-card >
+  
+  <mat-card class="result" appearance="outline">
+    <mat-card-content>
+      <h2 class="example-h2">Result</h2>
+  
+      <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [invert]="invert"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [thumbLabel]="thumbLabel"
+          [tickInterval]="tickInterval"
+          [(ngModel)]="value"
+          [vertical]="vertical">
+      </mat-slider>
+    </mat-card-content>
+  </mat-card>
+  
+  
 
 
+  
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" color="primary" cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>
